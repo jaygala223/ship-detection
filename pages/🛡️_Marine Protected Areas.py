@@ -1,6 +1,11 @@
 import streamlit as st
 import pandas as pd
 
+st.set_page_config(
+    page_title = "MPA",
+    page_icon = "🛡️",
+)
+
 st.title("Checking for possible MPA intrusion")
 
 st.write("Enter the coordinates, time and date of the image uploaded")
