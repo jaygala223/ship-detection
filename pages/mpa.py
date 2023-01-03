@@ -9,8 +9,8 @@ time = st.time_input("Time of clicking the image")
 
 st.date_input("Enter the date of clicking the image")
 
-st.number_input("Enter coordinates: (in decimal degree format)")
-st.number_input("Enter coordinates: S")
+latitude = st.number_input("Enter latitude: (in decimal degree format)", key = 'latitude')
+longitude = st.number_input("Enter longitude: ", key = 'longitude')
 
 # point_conception = {"LAT":[
 # 34° 27.00' N. lat,
@@ -24,4 +24,4 @@ st.number_input("Enter coordinates: S")
 # mpa_df = pd.DataFrame(point_conception)
 
 # st.map(mpa_df)
-st.map()
+st.map(pd.DataFrame({'latitude': [latitude], 'longitude': [longitude]}))
