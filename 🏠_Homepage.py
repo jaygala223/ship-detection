@@ -11,14 +11,15 @@ st.set_page_config(
     page_icon = "🛳️",
 )
 
-st.title("""
-Ship Detection
-""")
+st.title("""Ship Detection 
+[![](https://img.shields.io/github/stars/jaygala223/ship-detection?style=social)](https://github.com/jaygala223/ship-detection)""")
+
+st.write(
+    '<style>button[title="View fullscreen"], h4 a {display: none !important} [data-testid="stImage"] img {border: 1px solid #D6D6D9; border-radius: 3px; height: 200px; object-fit: cover; width: 100%} .block-container img:hover {}</style>',
+    unsafe_allow_html=True,
+)
 
 st.write("""Oceans support the livelihoods of an estimated 520 million people who rely on fishing and fishing related activities, and 2.6 billion people who depend on fish as an important part of their diet. But Illegal fishing is threatening the food supply of coastal communities as fish populations decline due to overfishing in areas fishers are not permitted to access. Addressing illegal fishing will positively contribute to the equitable growth and empowerment of the people who rely on oceans for food and income. """)
-
-
-# st.metric("Illegal", value = 5)
 
 
 st.write("""We now have a solution thanks to the breakthroughs in Deep Learning techniques. With this project we hope to come one step closer to stopping **illegal fishing** for good!""")
@@ -31,9 +32,20 @@ st.write("""
 Steps to use this project:
 1. Upload satellite images
 2. Click the predict button and wait for the Deep Learning algorithm to produce a result
-3. Display prediction
-4. Additionally, if the images is detected to be a ship you can check whether it was in a Marine Protected Region
+3. Display prediction""")
+
+# st.warning("Coming soon!")
+st.warning("""Coming soon!
+
+4. Additionally, if the image is detected to be a ship you can check whether it was in a Marine Protected Region.
 """)
+
+st.sidebar.info("""Code: [jaygal223/ship-detection](https://github.com/jaygala223/ship-detection)\n
+Linkedin:  [@jaykishorgala](https://www.linkedin.com/in/jaykishorgala)\n
+Leetcode: [@jaygala223](https://www.leetcode.com/jaygala223) \n
+
+""")
+
 
 # TODO for me:
 # 3.1. additional pts
@@ -90,3 +102,5 @@ if button:
         prediction(uploaded_image)
     else:
         st.error('Please upload an image first!')
+
+st.components.v1.html("""<script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>""")
