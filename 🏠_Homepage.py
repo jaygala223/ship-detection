@@ -25,19 +25,15 @@ st.write("""Oceans support the livelihoods of an estimated 520 million people wh
 st.write("""We now have a solution thanks to the breakthroughs in Deep Learning techniques. With this project we hope to come one step closer to stopping **illegal fishing** for good!""")
 
 
-st.write("""The dataset used for training can be found here: https://www.kaggle.com/datasets/apollo2506/satellite-imagery-of-ships""")
-
-
 st.write("""
 Steps to use this project:
 1. Upload satellite images
-2. Click the predict button and wait for the Deep Learning algorithm to produce a result
-3. Display prediction""")
+2. Click the predict button and wait for the Deep Learning algorithm to produce a result""")
 
 # st.warning("Coming soon!")
 st.warning("""Coming soon!
 
-4. Additionally, if the image is detected to be a ship you can check whether it was in a Marine Protected Region.
+3. Additionally, if the image is detected to be a ship you can check whether it was in a Marine Protected Region.
 """)
 
 st.sidebar.info("""Code: [jaygal223/ship-detection](https://github.com/jaygala223/ship-detection)\n
@@ -99,7 +95,8 @@ button = st.button('Predict')
     
 if button:
     if uploaded_image:
-        prediction(uploaded_image)
+        with st.spinner("Predicting..."):
+            prediction(uploaded_image)
     else:
         st.error('Please upload an image first!')
 

@@ -13,11 +13,11 @@ st.title("How this application works")
 
 
 st.write("""
-This project makes use of a Deep Neural Network Architecture called Convolutional Neural Network (CNN) which included multiple Convolutional layers (Conv2D with 3x3 filters) followed by Max Pooling Layers (2x2). This was then Flattened and attached to a Fully Connected layer of 512 neurons before being passed to the output layer of 1 neuron that used `Sigmoid` function as the activation. 
+This project makes use of a Deep Neural Network Architecture called Convolutional Neural Network (CNN) which included multiple Convolutional layers (Conv2D with 3x3 filters) followed by Max Pooling Layers (2x2). This was then Flattened and attached to a Fully Connected layer of 512 neurons before being passed to the output layer of 1 neuron that used `Sigmoid` function as the activation.
 
 `ReLU` i.e. Rectified Linear Unit was used as the activation for all the layers except the last because it is known to perform well on Computer Vision tasks such as this one.
 
-TensorFlow and Keras have been utilized for the data augmentation, compiling, training and testing of the model.
+TensorFlow and Keras have been utilized for the data augmentation, compiling, training and testing of the model. The dataset used for training can be found [here](https://www.kaggle.com/datasets/apollo2506/satellite-imagery-of-ships)
 
 Attaching the code snippets below!
 """)
@@ -67,5 +67,9 @@ Non-trainable parameterss: `0` \n""")
 
 st.header("Accuracy")
 st.image('accuracy.png')
+
+"""Training accuracy peaks at about `97%`
+
+Validation accuracy peaks at around `98%`"""
 
 st.write("The entire code of this project can be found here: https://github.com/jaygala223/ship-detection")
