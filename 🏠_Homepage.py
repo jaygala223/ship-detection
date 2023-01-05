@@ -43,10 +43,10 @@ st.write(
     unsafe_allow_html=True,
 )
 
-st.write("""Oceans support the livelihoods of an estimated 520 million people who rely on fishing and fishing related activities, and 2.6 billion people who depend on fish as an important part of their diet. But Illegal fishing is threatening the food supply of coastal communities as fish populations decline due to overfishing in areas fishers are not permitted to access. Addressing illegal fishing will positively contribute to the equitable growth and empowerment of the people who rely on oceans for food and income. """)
+st.write("""Oceans support the livelihoods of an estimated **520 million** people who rely on fishing and fishing related activities, and **2.6 billion** people who depend on fish as an important part of their diet. But **Illegal fishing** is threatening the food supply of coastal communities as fish populations decline due to **overfishing in areas fishers are not permitted to access**. Addressing illegal fishing will positively contribute to the equitable growth and empowerment of the people who rely on oceans for food and income.""")
 
 
-st.write("""We now have a solution thanks to the breakthroughs in Deep Learning techniques. With this project we hope to come one step closer to stopping **illegal fishing** for good!""")
+st.write("""We now have a solution thanks to the breakthroughs in **Deep Learning techniques**. With this project we hope to come one step closer to stopping **illegal fishing** for good!""")
 
 
 col1, col2 = st.columns(2)
@@ -58,7 +58,7 @@ with col1:
     2. Click the predict button and wait for the Deep Learning algorithm to produce a result""")
 
     # st.warning("Coming soon!")
-    st.info("""Coming soon!""")
+    # st.info("""Coming soon!""")
 
     st.write("""3. Additionally, if the image is detected to be a ship you can check whether it was in a Marine Protected Region by clicking [here](Marine_Protected_Areas).
     """)
