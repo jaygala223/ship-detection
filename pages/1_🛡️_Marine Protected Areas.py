@@ -22,9 +22,11 @@ def is_mpa(latitude, longitude):
     time.sleep(5)
 
 # st.map(mpa_df)
-st.map(pd.DataFrame({'latitude': [latitude], 'longitude': [longitude]}))
+st.map(pd.DataFrame({'latitude': [latitude, 5.00], 'longitude': [longitude, 5.00]}))
 
-mpa = st.button("Check for MPA")
+check_mpa = st.button("Check for MPA")
+
+mpa = st.map()
 
 if mpa:
     if date and time and latitude and longitude:
