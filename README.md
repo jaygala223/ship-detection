@@ -1,6 +1,6 @@
 # Ship Detection
 
-Welcome! This is the github repository of the Ship Detection project that lives at https://github.com/jaygala223/ship-detection
+Welcome! This is the github repository of the Ship Detection project that lives at https://jaygala223-ship-detection--homepage-bjv4aj.streamlit.app/
 
 The aim of this application is to create awareness about the dangers of illegal fishing and also to present a solution for this problem. 
 
