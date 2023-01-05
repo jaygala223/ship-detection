@@ -6,7 +6,7 @@ from matplotlib import pyplot as plt
 st.set_page_config(
     page_title = "Working",
     page_icon = "⚙️",
-    layout = "wide"
+    layout = "wide",
 )
 
 st.title("How this application works")

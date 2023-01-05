@@ -9,7 +9,7 @@ import keras
 st.set_page_config(
     page_title = "Ship detection",
     page_icon = "🛳️",
-    layout = "wide"
+    layout = "wide",
 )
 
 def prediction(uploaded_image):
@@ -81,7 +81,7 @@ Leetcode: [@jaygala223](https://www.leetcode.com/jaygala223) \n
 
 with col2:
 
-    uploaded_image = st.file_uploader("Upload satellite images here", type = ['jpg', 'jpeg', 'png'])
+    uploaded_image = st.file_uploader("**Upload satellite images here**", type = ['jpg', 'jpeg', 'png'])
 
     if uploaded_image is not None:
         #file details
@@ -95,15 +95,16 @@ with col2:
     # To View Uploaded Image
         st.image(load_image(uploaded_image), caption = f"Filename: {uploaded_image.name}", width=250)
 
-    button = st.button('Predict')
+    button = st.button('Predict', key = 'predict')
 
     
-if button:
-    if uploaded_image:
-        with st.spinner("Predicting..."):
-            prediction(uploaded_image)
-    else:
-        st.error('Please upload an image first!')
+    if button:
+        if uploaded_image:
+            with col1:
+                with st.spinner("Predicting..."):
+                    prediction(uploaded_image)
+        else:
+            st.error('Please upload an image first!')
 
 
 
