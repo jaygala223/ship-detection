@@ -12,11 +12,11 @@ st.set_page_config(
     layout = "wide",
 )
 
-with open('map_experiment.geojson') as f:
+with open('Marine_Protected_Areas_under_the_Marine_Management_Act.geojson') as f:
     geojson_file = geojson.load(f)
 
-st.write(geojson_file['features'][0])
-st.title("Checking for possible MPA intrusion")
+# st.write(geojson_file['features'][0])
+st.title("Check for possible MPA intrusion")
 
 col1, col2 = st.columns(2)
 
@@ -27,8 +27,8 @@ with col2:
 
     date = st.date_input("Enter the date of clicking the image")
 
-    latitude = st.number_input("Enter latitude: (in decimal degree format)", key = 'latitude')
-    longitude = st.number_input("Enter longitude: (in decimal degree format)", key = 'longitude')
+    longitude = st.number_input("Enter longitude: (in decimal degree format)", key = 'latitude')
+    latitude = st.number_input("Enter latitude: (in decimal degree format)", key = 'longitude')
 
     # coordinates = st.text_input("Enter Latitude and Longitude in decimal degree format: Example: -6.25, 8.33")
 
@@ -37,15 +37,15 @@ with col2:
 
     check_mpa = st.button("Check for MPA intrustion")
 
-def is_mpa(latitude, longitude):
+def is_mpa(longitude, latitude):
     # Create a Shapely point from the latitude and longitude
-  point = Point(latitude, longitude)
+  point = Point(longitude, latitude)
 
   # Iterate through the features in the GeoJSON file
   for feature in geojson_file['features']:
     # Check if the point is within the polygon defined by the feature
     if Point(point).within(Polygon(feature['geometry']['coordinates'][0])):
-      return True
+        return True
 
   # If the point is not within any of the polygons, return False
   return False
@@ -68,27 +68,23 @@ if check_mpa:
         # if regex_okay(coordinates):
             
             with st.spinner("Checking for possible MPA intrusion"):
-                if is_mpa(latitude, longitude):
-                    st.sucess("Point is in a Marine Protected Region")
+                if is_mpa(longitude, latitude):
+                    st.success("Point is in a Marine Protected Region. See how this works [here](Working)")
                 else:
-                    st.info("Point lies outside a Marine Protected Region")
-                st.write("woopie")
+                    st.info("Point lies outside a Marine Protected Region. See how this works [here](Working)")
     else:
         st.error("All above fields are required. Please fill them up and try again!")
 
 with col1:
     if latitude and longitude:
-        map = folium.Map(location = [latitude, longitude], zoom_start = 5)
         
-        # folium.Marker([latitude,latitude]).add_to(map)
-        st.write(f"{latitude}, {longitude}")
+        map = folium.Map(location = [longitude, latitude], zoom_start = 5)
+        
         choropleth = folium.Choropleth(
-            geo_data = './map.geojson'
+            geo_data = './Marine_Protected_Areas_under_the_Marine_Management_Act.geojson'
         )
+        
         choropleth.geojson.add_to(map)
-
+        folium.Marker([latitude,longitude]).add_to(map)
 
         st_map = st_folium(map, width = 700, height = 450)
-
-
-st.info("See how this works [here](Working)")

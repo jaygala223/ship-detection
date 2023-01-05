@@ -13,3 +13,5 @@ https://stackoverflow.com/questions/71759248/importerror-cannot-import-name-buil
 https://stackoverflow.com/questions/71906577/python-gprc-attributeerror-nonetype-object-has-no-attribute-message-types-by
 
 Remove tensorflow-intel from the requirements.txt if the deployment on streamlit cloud fails due to `couldn't install requirements`.
+
+image.png
