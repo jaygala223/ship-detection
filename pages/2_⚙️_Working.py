@@ -6,11 +6,10 @@ from matplotlib import pyplot as plt
 st.set_page_config(
     page_title = "Working",
     page_icon = "⚙️",
+    layout = "wide"
 )
 
 st.title("How this application works")
-
-
 
 st.write("""
 This project makes use of a Deep Neural Network Architecture called Convolutional Neural Network (CNN) which included multiple Convolutional layers (Conv2D with 3x3 filters) followed by Max Pooling Layers (2x2). This was then Flattened and attached to a Fully Connected layer of 512 neurons before being passed to the output layer of 1 neuron that used `Sigmoid` function as the activation.
