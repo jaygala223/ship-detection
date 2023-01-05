@@ -8,9 +8,7 @@ There are 2 main sections to this project:
 1. Detecting of ships from satellite imagery using Deep Learning techniques and
 2. Identifying whether a ship was located inside a Marine Protected Area (MPA) using GeoSpatial data
 
-Personal project to make a deep learning application to detect ships from satellite imagery
-
-Note to future self and other developers:
+**Note to future self and other developers:**
 
 Sklearn is known to cause errors like: no such 'module' found.
 
