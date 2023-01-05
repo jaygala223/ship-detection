@@ -1,4 +1,13 @@
-# ship-detection
+# Ship Detection
+
+Welcome! This is the github repository of the Ship Detection project that lives at https://github.com/jaygala223/ship-detection
+
+The aim of this application is to create awareness about the dangers of illegal fishing and also to present a solution for this problem. 
+
+There are 2 main sections to this project:
+1. Detecting of ships from satellite imagery using Deep Learning techniques and
+2. Identifying whether a ship was located inside a Marine Protected Area (MPA) using GeoSpatial data
+
 Personal project to make a deep learning application to detect ships from satellite imagery
 
 Note to future self and other developers:
@@ -13,5 +22,3 @@ https://stackoverflow.com/questions/71759248/importerror-cannot-import-name-buil
 https://stackoverflow.com/questions/71906577/python-gprc-attributeerror-nonetype-object-has-no-attribute-message-types-by
 
 Remove tensorflow-intel from the requirements.txt if the deployment on streamlit cloud fails due to `couldn't install requirements`.
-
-image.png
