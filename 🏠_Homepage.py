@@ -55,13 +55,11 @@ with col1:
     st.subheader("Steps to use this project:")
     st.write("""
     1. Upload satellite images
-    2. Click the predict button and wait for the Deep Learning algorithm to produce a result""")
+    2. Click the predict button and wait for the Deep Learning algorithm to produce a result
+    3. Additionally, if the image is detected to be a ship you can check whether it was in a Marine Protected Region by clicking [here](Marine_Protected_Areas).""")
 
     # st.warning("Coming soon!")
     # st.info("""Coming soon!""")
-
-    st.write("""3. Additionally, if the image is detected to be a ship you can check whether it was in a Marine Protected Region by clicking [here](Marine_Protected_Areas).
-    """)
 
 st.sidebar.info("""Code: [jaygal223/ship-detection](https://github.com/jaygala223/ship-detection)\n
 Linkedin:  [@jaykishorgala](https://www.linkedin.com/in/jaykishorgala)\n
@@ -98,13 +96,12 @@ with col2:
     button = st.button('Predict', key = 'predict')
 
     
-    if button:
-        if uploaded_image:
-            with col1:
-                with st.spinner("Predicting..."):
-                    prediction(uploaded_image)
-        else:
-            st.error('Please upload an image first!')
+if button:
+    if uploaded_image:
+        with st.spinner("Predicting..."):
+            prediction(uploaded_image)
+    else:
+        st.error('Please upload an image first!')
 
 
 
