@@ -80,7 +80,7 @@ st.write("""The main idea behind this to detect unauthorised vessels entering in
 st.subheader("Map")
 st.write("""`Folium` and `streamlit-folium` have been used to render the interactive map and plot coordinates. `Folium` also makes it possible to GeoJSON data to mark Marine Protected Areas.
 
-`GeoJSON` is used to handle geospatial data. More specifically, we are using and parsing GeoJSON data to mark MPA boundaries on our maps. Currently we only have 1 MPA data obtained from the New Zealand government website and more will be added soon.""")
+`GeoJSON` is used to handle geospatial data. More specifically, we are using and parsing GeoJSON data to mark MPA boundaries on our maps. Currently we only have 1 MPA data obtained from the New Zealand government [website](https://catalogue.data.govt.nz/dataset/marine-protected-areas-under-the-marine-management-act/resource/6fa9e7fb-2eca-4de4-b1b4-70c0bb13c32a) and more will be added soon.""")
 
 st.code("""
 with open('Marine_Protected_Areas_under_the_Marine_Management_Act.geojson') as f:
