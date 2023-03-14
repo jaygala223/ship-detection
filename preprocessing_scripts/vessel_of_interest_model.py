@@ -114,7 +114,7 @@ df = [{
 
 def predict_vessel_of_interest(dataframe):
 
-    model = pkl.load(open('preprocessing_scripts\logistic_regression_model.h5', 'rb'))
+    model = pkl.load(open('preprocessing_scripts/logistic_regression_model.h5', 'rb'))
 
     preds = model.predict(dataframe)
     return preds[0]
