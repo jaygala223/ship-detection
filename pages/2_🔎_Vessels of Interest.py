@@ -14,15 +14,15 @@ st.set_page_config(
 
 gap_hours = st.number_input('Enter gap hours', key = 'start_time')
 
-start_latitude = st.number_input('Enter latitude when AIS was disabled:', key = 'start_latitude')
+start_latitude = st.number_input('Enter latitude when AIS was disabled (in decimal degrees):', key = 'start_latitude')
 
-start_longitude = st.number_input('Enter longitude when AIS was disabled:', key = 'start_longitude')
+start_longitude = st.number_input('Enter longitude when AIS was disabled (in decimal degrees):', key = 'start_longitude')
 
-end_latitude = st.number_input('Enter latitude when AIS was re-enabled:', key = 'end_latitude')
+end_latitude = st.number_input('Enter latitude when AIS was re-enabled (in decimal degrees):', key = 'end_latitude')
 
-end_longitude = st.number_input('Enter longitude when AIS was re-enabled:', key = 'end_longitude')
+end_longitude = st.number_input('Enter longitude when AIS was re-enabled (in decimal degrees):', key = 'end_longitude')
 
-dist_from_shore = st.number_input('Enter distance from shore:')
+dist_from_shore = st.number_input('Enter distance from shore (in meters):')
 
 gear_type = st.selectbox('Select gear type from the following:', ['dredge_fishing', 'drifting_longlines', 'fishing', 'fixed_gear', 'other', 'other_purse_seines', 'other_seines', 'pole_and_line', 'pots_and_traps', 'purse_seines', 'seiners', 'set_gillnets', 'set_longlines', 'squid_jigger', 'trawlers', 'trollers', 'tuna_purse_seines'])
 
@@ -176,9 +176,9 @@ if predict:
         with st.spinner("Checking for possible IUU activity"):
             time.sleep(2)
             if predict_vessel_of_interest(pd.DataFrame.from_dict(df)):
-                st.success("The vessel is most likely engaged in IUU activity!")
+                st.success("The vessel could be a potential vessel of interest!")
             else:
-                st.info("The vessel does not appear to be engaged in IUU activity")
+                st.info("The vessel has a low likelihood of being a vessel of interest")
 
     else:
         st.error('All above fields are mandatory. Please enter values for all and try again.')
