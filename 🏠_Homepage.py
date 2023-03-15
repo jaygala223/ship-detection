@@ -61,11 +61,11 @@ with col1:
     # st.warning("Coming soon!")
     # st.info("""Coming soon!""")
 
-st.sidebar.info("""Code: [jaygal223/ship-detection](https://github.com/jaygala223/ship-detection)\n
-Linkedin:  [@jaykishorgala](https://www.linkedin.com/in/jaykishorgala)\n
-Leetcode: [@jaygala223](https://www.leetcode.com/jaygala223) \n
+# st.sidebar.info("""Code: [jaygal223/ship-detection](https://github.com/jaygala223/ship-detection)\n
+# Linkedin:  [@jaykishorgala](https://www.linkedin.com/in/jaykishorgala)\n
+# Leetcode: [@jaygala223](https://www.leetcode.com/jaygala223) \n
 
-""")
+# """)
 
 
 # TODO for me:
