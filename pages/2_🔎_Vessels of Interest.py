@@ -12,36 +12,49 @@ st.set_page_config(
     layout = "wide",
 )
 
-gap_hours = st.number_input('Enter gap hours', key = 'start_time')
+col1, col2 = st.columns(2)
+with col1:
+    gap_hours = st.number_input('Enter gap hours', key = 'start_time')
 
-start_latitude = st.number_input('Enter latitude when AIS was disabled (in decimal degrees):', key = 'start_latitude')
+    start_latitude = st.number_input('Enter latitude when AIS was disabled (in decimal degrees):', key = 'start_latitude')
 
-start_longitude = st.number_input('Enter longitude when AIS was disabled (in decimal degrees):', key = 'start_longitude')
+    start_longitude = st.number_input('Enter longitude when AIS was disabled (in decimal degrees):', key = 'start_longitude')
 
-end_latitude = st.number_input('Enter latitude when AIS was re-enabled (in decimal degrees):', key = 'end_latitude')
+    end_latitude = st.number_input('Enter latitude when AIS was re-enabled (in decimal degrees):', key = 'end_latitude')
 
-end_longitude = st.number_input('Enter longitude when AIS was re-enabled (in decimal degrees):', key = 'end_longitude')
+    
+with col2:
+    end_longitude = st.number_input('Enter longitude when AIS was re-enabled (in decimal degrees):', key = 'end_longitude')
 
-dist_from_shore = st.number_input('Enter distance from shore (in meters):')
+    dist_from_shore = st.number_input('Enter distance from shore (in meters):')
 
-gear_type = st.selectbox('Select gear type from the following:', ['dredge_fishing', 'drifting_longlines', 'fishing', 'fixed_gear', 'other', 'other_purse_seines', 'other_seines', 'pole_and_line', 'pots_and_traps', 'purse_seines', 'seiners', 'set_gillnets', 'set_longlines', 'squid_jigger', 'trawlers', 'trollers', 'tuna_purse_seines'])
+    gear_type = st.selectbox('Select gear type from the following:', ['dredge_fishing', 'drifting_longlines', 'fishing', 'fixed_gear', 'other', 'other_purse_seines', 'other_seines', 'pole_and_line', 'pots_and_traps', 'purse_seines', 'seiners', 'set_gillnets', 'set_longlines', 'squid_jigger', 'trawlers', 'trollers', 'tuna_purse_seines'])
 
-start_time = st.time_input('Enter time of AIS disabling event:')
+    start_time = st.time_input('Enter time of AIS disabling event:')
 
-ocean_name = st.selectbox('Enter ocean name: ', ['North Atlantic Ocean', 'South Atlantic Ocean' ,'Celtic Sea',
- 'Southern Ocean' ,'Mediterranean Sea - Eastern Basin', 'Norwegian Sea',
- 'Barentsz Sea', 'Sea of Okhotsk', 'Japan Sea', 'Bering Sea' ,'Gulf of Alaska',
- 'Labrador Sea', 'Davis Strait', 'North Pacific Ocean' ,'South Pacific Ocean',
- 'Arafura Sea' ,'Arabian Sea' ,'Indian Ocean' ,'Tasman Sea' ,'Bismarck Sea',
- 'Gulf of Guinea', 'Coral Sea' 'Bay of Bengal' 'Great Australian Bight',
- 'Mozambique Channel', 'Caribbean Sea', 'Philippine Sea', 'Timor Sea',
- 'Greenland Sea' ,'North Sea' ,'Laccadive Sea', 'Bass Strait',
- 'Gulf of St. Lawrence' ,'Baffin Bay', 'Gulf of Mexico', 'Solomon Sea'])
+    ocean_name = st.selectbox('Enter ocean name: ', ['North Atlantic Ocean', 'South Atlantic Ocean' ,'Celtic Sea',
+    'Southern Ocean' ,'Mediterranean Sea - Eastern Basin', 'Norwegian Sea',
+    'Barentsz Sea', 'Sea of Okhotsk', 'Japan Sea', 'Bering Sea' ,'Gulf of Alaska',
+    'Labrador Sea', 'Davis Strait', 'North Pacific Ocean' ,'South Pacific Ocean',
+    'Arafura Sea' ,'Arabian Sea' ,'Indian Ocean' ,'Tasman Sea' ,'Bismarck Sea',
+    'Gulf of Guinea', 'Coral Sea' 'Bay of Bengal' 'Great Australian Bight',
+    'Mozambique Channel', 'Caribbean Sea', 'Philippine Sea', 'Timor Sea',
+    'Greenland Sea' ,'North Sea' ,'Laccadive Sea', 'Bass Strait',
+    'Gulf of St. Lawrence' ,'Baffin Bay', 'Gulf of Mexico', 'Solomon Sea'])
 
+st.write("""OR""")
+
+prediction_data = st.file_uploader("**Upload an excel file with the necessary data**", type = ['xlsx', 'csv'])
+if prediction_data:
+    st.dataframe(prediction_data)
+    
 predict = st.button('Predict')
-
 if predict:
-    if start_latitude and end_latitude and ocean_name and start_time and gap_hours and gear_type and dist_from_shore and start_longitude and end_longitude:
+    if prediction_data:
+        #logic
+        pass
+
+    elif (start_latitude and end_latitude and ocean_name and start_time and gap_hours and gear_type and dist_from_shore and start_longitude and end_longitude):
         
         spherical_distance = calculate_spherical_distance(start_latitude, start_longitude, end_latitude, end_longitude)
 
@@ -181,6 +194,6 @@ if predict:
                 st.info("The vessel has a low likelihood of being a vessel of interest")
 
     else:
-        st.error('All above fields are mandatory. Please enter values for all and try again.')
+        st.error('All above fields are mandatory. Please enter values for all or upload an Excel file with the necessary information and try again.')
 
     
